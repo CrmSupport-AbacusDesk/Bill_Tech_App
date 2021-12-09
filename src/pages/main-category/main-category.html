@@ -1,0 +1,45 @@
+
+<ion-header>
+  <ion-navbar>
+      <ion-title>Category</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <!-- <div class="fix" >
+      <div class="search">
+          <ion-searchbar type='text' placeholder="{{'Search'}}" name='search' #search="ngModel" [(ngModel)]="filter.search" 
+          (ngModelChange)="getProductList(filter.search)"></ion-searchbar>
+          {{filter.search}}
+      </div>
+  </div> -->
+  <div class="m16" >
+      <div  class="our-product" *ngFor="let list of prod_cat_list; let i=index" (click)="goOnProductPage(list.id)">
+          <div class="thumbnail">
+              <!-- <ion-slides class="cs-slide" pager autoplay="1000" speed="1000" loop="true" *ngIf="list.image && list.image.length>2" >
+                  <ion-slide *ngFor="let image of list.image; let i=index">
+                      <img [src]="uploadUrl+image.image_name">
+                  </ion-slide>
+              </ion-slides> -->
+              <!-- *ngIf=" list.image.length==1" -->
+              <div >
+                <img [src]="uploadUrl+list.image[0].image_name" *ngIf=" list.image.length==1">
+                <img src="assets/imgs/default-image.png" *ngIf="!list.image.length">
+            </div>
+          </div>
+          <!-- (click)="goOnProductPage(list.id)" -->
+          <div class="product-footer">
+              <p>{{list.category_name |titlecase}}</p>
+          </div>
+      </div>
+  </div>
+
+  <!-- <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)"  *ngIf="flag!=1">
+      <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="{{'Loading more data...' | translate}}">
+  </ion-infinite-scroll-content>
+</ion-infinite-scroll> -->
+
+</ion-content>
+

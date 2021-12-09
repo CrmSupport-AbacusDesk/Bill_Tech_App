@@ -1,0 +1,46 @@
+
+<ion-header no-border>
+    <ion-toolbar>
+        <ion-buttons class="back-btns" (click)="languageBack()">
+            <button ion-button icon-only>
+                <ion-icon ios="ios-arrow-back" md="md-arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+        
+        <ion-title>
+            <div class="logo no-margin" >
+                <img src="assets/imgs/logo.png" >
+            </div>
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <form #f="ngForm" class="hp100">
+      <div class="center-block">
+        <div class="mobile-login">
+            <div class="text">
+                <p>{{'Enter your mobile number to get started' | translate}}!</p>
+            </div>
+            <div class="input-section">
+                <div class="input-adjust">
+                    <input type="tel" name="" placeholder="{{'Mobile number' | translate}}" name="mobile_no" #mobile_no="ngModel" [(ngModel)]="data.mobile_no" [ngClass]="{'is-invalid':f.submitted && mobile_no?.invalid}" required min="0" maxlength="10" minlength="10">
+                    <div class="fixed-number">
+                        <p>+91</p>
+                    </div>
+                </div>
+                <i class="material-icons">local_phone</i>
+            </div>
+            <div *ngIf="data.mobile_no!=''">
+                <div class="otp-error" *ngIf="!mobile_no.valid && mobile_no.touched">
+                    <p>{{'Enter valid Mobile No.' | translate}} </p>
+                </div>
+            </div>
+            <div class="login-btn">
+                <button (click)="f.valid && submit()" [disabled]="hidevalue">{{'Continue' | translate}} {{maxTime ? '('+maxTime+')' : ''}}</button>
+            </div>
+        </div>
+      </div>
+    </form>
+    
+</ion-content>

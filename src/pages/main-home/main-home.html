@@ -1,0 +1,42 @@
+
+<ion-header>
+    <ion-navbar>
+        <ion-title></ion-title>
+    </ion-navbar>
+</ion-header>
+<div class="header-logo">
+    <img src="assets/imgs/logo.png">
+</div>
+
+<ion-content padding>
+    <div class="list-adjust">
+        <ion-list>
+            <button ion-item (click)="goOnAdvanceTextPage()">
+                {{'Advance Decorative Laminates' | translate}}<i class="material-icons">
+                    keyboard_arrow_right
+                </i>
+            </button>  
+            <button ion-item (click)="goOnNewsPage()">
+                {{'Latest News' | translate}}<i class="material-icons">
+                    keyboard_arrow_right
+                </i>
+            </button>  
+            <button ion-item (click)="goOnVideoPage()">
+                {{'Videos' | translate}}<i class="material-icons">
+                    keyboard_arrow_right
+                </i>
+            </button>  
+            <button ion-item (click)="goOnContactPage()">
+                {{'Contact Us' | translate}}<i class="material-icons">
+                    keyboard_arrow_right
+                </i>
+            </button>
+            <button ion-item (click)="goOnfaqPage()">
+                {{'FAQ' | translate}}
+                <i class="material-icons">keyboard_arrow_right</i>
+            </button>
+        </ion-list>
+    </div>
+</ion-content>
+
+

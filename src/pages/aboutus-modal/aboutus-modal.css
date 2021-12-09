@@ -1,0 +1,8 @@
+page-aboutus-modal ion-header {
+  display: none;
+}
+
+page-aboutus-modal ion-content {
+  background: rgba(0, 0, 0, 0.6) !important;
+}
+/*# sourceMappingURL=aboutus-modal.css.map */

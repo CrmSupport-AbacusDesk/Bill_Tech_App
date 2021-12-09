@@ -1,0 +1,11 @@
+page-otp .back-fix {
+  position: absolute;
+  top: 10px;
+  left: 16px;
+}
+
+page-otp .back-fix ion-icon {
+  font-size: x-large;
+  color: #ffffff;
+}
+/*# sourceMappingURL=otp.css.map */

@@ -1,0 +1,39 @@
+page-point-detail {
+    ion-item{
+        ion-label{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            
+            
+            .left-block{
+                
+                p{
+                    font-size: 14px;
+                    line-height: 16px;
+                }
+            }
+            
+            span{font-size: 12px; line-height: 14px;}
+            
+            .right-block{
+                text-align: right;
+                
+                h2{
+                    font-size: 16px;
+                    font-weight: 700;
+                }
+
+                &.Inprocess{
+                    color: #f69503;
+                }
+                &.Success{
+                    color: #588f00;
+                }
+                &.Error, &.FAILURE{
+                    color: #f31010;
+                }
+            }
+        }
+    }
+}

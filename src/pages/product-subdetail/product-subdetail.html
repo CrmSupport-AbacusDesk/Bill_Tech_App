@@ -1,0 +1,84 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>{{'Product Detail' | translate}} - {{prod_detail.category_name | titlecase}}</ion-title>
+        <!-- <h1>{{prod_detail.product_name | titlecase}}</h1> -->
+        <!-- <p *ngIf="prod_detail.desc!=''"><strong>{{'Description' | translate}}</strong> : {{prod_detail.desc}}</p> -->
+        
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    
+    <div class="slide-image h200">
+        <!-- zoom="true" -->
+        <ion-slides class="cs-slide" *ngIf="prod_detail.image && prod_detail.image.length>1" [initialSlide]="0" pager autoplay="1000" speed="1000" loop="true">
+            <ion-slide *ngFor="let row of prod_detail.image; let i=index" (click)="viewDetail(row.image_name)">
+                <div class="swiper-zoom-container">
+                    <img [src]="upload_url+row.image">
+                </div>
+            </ion-slide>
+        </ion-slides>
+        <div class="swiper-zoom-container" *ngIf="prod_detail.image && prod_detail.image.length==1">
+            <img [src]="upload_url+prod_detail_image[0].image_name">
+            <!-- <img src="assets/imgs/default-image.png" *ngIf="!list.image.length"> -->
+        </div>
+    </div>
+    
+    <!-- <div class="fix">
+        <div class="pr-img">
+            <ion-slides class="cs-slide"  pager autoplay="1000" speed="1000" loop="true" *ngIf="prod_detail.image && prod_detail.image.length" >
+                <ion-slide *ngFor="let row of prod_detail.image; let i=index" (click)="viewDetail(row.image_name)">
+                    <img [src]="upload_url+row.image_name">
+                </ion-slide>
+            </ion-slides>
+        </div>
+    </div> -->
+    
+    <div class="pr-about">
+        <!-- For Hindi -->
+        <!-- <h1>{{lang !='en' ? prod_detail.hin_product_name : prod_detail.product_name | titlecase}}</h1> -->
+        <h1 class="mb5">{{prod_detail.product_name | titlecase}}</h1>
+        <p *ngIf="prod_detail.desc!=''"><strong>{{'Description' | translate}}</strong> : {{prod_detail.desc}}</p>
+        <p>Code : {{prod_detail.product_code}}</p>
+        <p>Price : {{prod_detail.mrp}}</p>
+        
+    </div>
+    
+    
+    <div class="heading line mt0 mb10">
+        <p>Related Products</p>
+    </div>
+    
+    <div class="carousel sm-label-font" *ngIf="assign_prod && assign_prod.length" >
+        
+        <div class="carousel-item" *ngFor="let row of assign_prod; let i=index"  (click)="getProductDetail(row.id)">
+            <div class="img-section">
+                <img [src]="upload_url+row.image_name">
+                <!-- <img src="assets/imgs/default-image.png" *ngIf="!row.image.length"> -->
+            </div>
+            <label>{{row.product_name}}</label>
+            <label>{{row.product_code}}</label>
+            <label>{{row.mrp}}</label>
+        </div>
+    </div>
+    
+    
+    
+    <!-- <div class="slide-image h100" style="display: none;">
+        <ion-slides class="cs-slide" *ngIf="assign_prod && assign_prod.length">
+            <ion-slide *ngFor="let row of assign_prod; let i=index" >
+                <ng-container >
+                    <div class="swiper-zoom-container">
+                        <img [src]="upload_url+row[0].image_name">
+                    </div>
+                    <p>{{row[0].product_name}}</p>
+                    <p>{{row[0].product_code}}</p>
+                    <p>{{row[0].mrp}}</p>
+                </ng-container>
+            </ion-slide>
+        </ion-slides>
+    </div> -->
+    <!-- <div class="" *ngFor="let val of assign_prod">
+        {{val[0].product_code}}
+    </div> -->
+</ion-content>

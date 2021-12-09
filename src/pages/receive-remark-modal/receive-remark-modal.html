@@ -1,0 +1,19 @@
+
+<ion-content padding class="popup-modal">
+  <div class="modal-center">
+    <div class="modal-content in-modal">
+      <p>Receiving Remark</p>
+      
+      <div class="input-section">
+        <div class="input-adjust m0">
+          <textarea class="radius-none" type="text" placeholder="Enter Remark" name="receiving_remark"  #receiving_remark="ngModel" [(ngModel)]="data.receiving_remark"  required></textarea>
+        </div>
+      </div>
+      
+      <div class="footer-btn">
+        <button class="outline-btn" (click)="dismiss()">Cancel</button>	
+        <button class="fill-btn" [disabled]="!data.receiving_remark" (click)="submit()">Save</button>
+      </div>	
+    </div>
+  </div>
+</ion-content>

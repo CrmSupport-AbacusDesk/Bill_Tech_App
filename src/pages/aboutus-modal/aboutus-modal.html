@@ -1,0 +1,18 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>aboutus-modal</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <div class="main-modal">
+        <div class="modal-box">
+            <h1>{{'Bill Tech' | translate}}</h1>
+            <h2>{{'Your request to access the Bill Tech is under review. You will be able to log in as soon as the overseeing dealer acknowledges your application.' | translate}}</h2>
+            <p>{{'Meanwhile, you can contact us' | translate}} <a href="tel:01202807328">0120-2807328</a> {{'or mail us' | translate}} <span>info@billtechelectricals.in</span> {{'if you any question' | translate}}.</p>
+            <div class="modal-cls" (click)="gotoHomePage()">
+                <i class="material-icons">cancel</i>
+            </div>
+        </div>
+    </div>
+</ion-content>

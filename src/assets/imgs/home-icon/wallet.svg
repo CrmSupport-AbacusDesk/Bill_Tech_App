@@ -1,0 +1,10 @@
+<svg id="wallet" xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 45 45">
+  <path id="Path_960" data-name="Path 960" d="M72.575,51.408l-2.25-10.875L51.2,44.564l1.406,6.844Z" transform="translate(-46.7 -36.971)" fill="#3dc9ae"/>
+  <g id="Group_2217" data-name="Group 2217" transform="translate(16.5)">
+    <path id="Path_961" data-name="Path 961" d="M208.921,14.438l2.813-6.844L193.827,0l-6.094,14.438Z" transform="translate(-187.733)" fill="#4cdbc4"/>
+    <ellipse id="Ellipse_168" data-name="Ellipse 168" cx="5.438" cy="3.75" rx="5.438" ry="3.75" transform="translate(12.129 24.53) rotate(-157.027)" fill="#4cdbc4"/>
+  </g>
+  <path id="Path_962" data-name="Path 962" d="M41.438,146.133H2.813A2.762,2.762,0,0,0,0,148.945v26.531a2.762,2.762,0,0,0,2.813,2.813H41.438a2.762,2.762,0,0,0,2.813-2.812V148.945A2.821,2.821,0,0,0,41.438,146.133Z" transform="translate(0 -133.289)" fill="#ff7058"/>
+  <path id="Path_963" data-name="Path 963" d="M394.806,279.467a4.406,4.406,0,0,0,0,8.812h6.281v-8.719h-6.281Z" transform="translate(-356.087 -254.904)" fill="#e8eaea"/>
+  <circle id="Ellipse_169" data-name="Ellipse 169" cx="1.781" cy="1.781" r="1.781" transform="translate(36.844 27.187)" fill="#40596b"/>
+</svg>

@@ -1,0 +1,80 @@
+page-registration .csm-form ion-list ion-item {
+  min-height: inherit;
+  padding-left: 0px;
+  height: 40px;
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+}
+
+page-registration .csm-form ion-list ion-item .item-inner {
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+  padding-right: 0px !important;
+  border: solid 1px #ccc !important;
+  background: #fff;
+}
+
+page-registration .csm-form ion-list ion-item .item-inner .input-wrapper {
+  background: transparent;
+}
+
+page-registration .csm-form ion-list ion-item .item-inner .input-wrapper ion-label {
+  margin: 0px;
+  padding: 0px;
+  position: absolute;
+  padding-left: 16px;
+  margin-top: -15px;
+  font-size: 14px;
+}
+
+page-registration .csm-form ion-list ion-item .item-inner .input-wrapper ion-input {
+  background: transparent;
+}
+
+page-registration .csm-form ion-list ion-item .item-inner .input-wrapper ion-input input {
+  background: transparent;
+  width: 100%;
+  margin: 0px;
+  margin-top: 11px;
+  padding-left: 13px;
+}
+
+page-registration .csm-form ion-list ion-item.input-has-value .item-inner .input-wrapper ion-label, page-registration .csm-form ion-list ion-item.item-input-has-focus .item-inner .input-wrapper ion-label {
+  font-size: 12px;
+  margin-top: 0px;
+}
+
+page-registration .upload-document {
+  height: 110px;
+  border: solid 1px #ccc;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  overflow: hidden;
+}
+
+page-registration .upload-document p {
+  font-size: 12px;
+  text-align: center;
+  line-height: 16px;
+  color: #ed4b41;
+}
+
+page-registration .upload-document p i {
+  font-size: 24px;
+}
+
+page-registration .upload-document.error {
+  border-color: #ff0000;
+}
+
+page-registration .upload-document.error p {
+  color: #ff0000;
+}
+/*# sourceMappingURL=registration.css.map */

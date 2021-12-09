@@ -1,0 +1,18 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>{{'FAQ Answer' | translate}}</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <div class="faq-answer">
+        <div class="faq-top">
+            <img src="assets/imgs/question.png">
+            <p [innerHTML]="data.question"></p>
+        </div>
+        <div class="faq-bottom">
+            <img src="assets/imgs/ans.png">
+            <p [innerHTML]="data.answer"></p>
+        </div>
+    </div>
+</ion-content>

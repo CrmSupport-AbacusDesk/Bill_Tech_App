@@ -1,0 +1,21 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>{{data.category}}</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <div class="furn-container" >
+        <div class="furn-imgs" *ngFor="let row of sub_cat_list;let i=index" (click)="goOnfurnituresharePage(i)">
+            <img src="{{upload_url+row.image_name}}">
+        </div>
+    </div>
+    
+    <div class="image-detail" *ngIf="sub_cat_list.length == 0">
+        <img src="assets/imgs/no_found.svg">
+    </div>
+    <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)"  *ngIf="flag!=1">
+        <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="{{'Loading more data...' | translate}}">
+        </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+</ion-content>

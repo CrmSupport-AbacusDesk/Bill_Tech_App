@@ -1,0 +1,32 @@
+<ion-header>
+    <ion-navbar>
+        <!-- For hindi -->
+        <!-- {{lang != 'en' ? prod_cat.hin_category_name : prod_cat.category_name |titlecase}} -->
+        <ion-title>{{prod_cat.category_name |titlecase}}</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <div class="fix" >
+        <div class="search">
+            <ion-searchbar type='text' placeholder="{{'Search' | translate}}" name='search' #search="ngModel" [(ngModel)]="filter.search" (ngModelChange)="getProductList(cat_id,filter.search)"></ion-searchbar>
+        </div>
+    </div>
+    <div class="pr-list" (click)="goOnProductSubDetailPage(list.id)" *ngFor="let list of prod_list;let i=index">
+        <button ion-item>
+			<div class="main-bx">
+				<div class="bx-left">
+					<img src={{upload_url+list.image_name}}>
+                    <!-- <img src="assets/imgs/default-image.png" *ngIf="!list.image.length"> -->
+				</div>
+				<div class="bx-right">
+					<!-- For Hindi -->
+					<!-- {{lang != 'en' ? list.hin_product_name : list.product_name |titlecase}} -->
+					<h2>{{list.product_name |titlecase}}</h2>
+					<h2>Code : {{list.product_code |titlecase}}</h2>
+				</div>
+			</div>  
+			<i class="material-icons">trending_flat</i>
+		</button>
+    </div>
+</ion-content>

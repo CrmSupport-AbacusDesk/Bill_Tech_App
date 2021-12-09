@@ -1,0 +1,21 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>{{data.category}}</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content style="background: #000;">
+    <div class="slide-image">
+        <ion-slides [initialSlide]="index" paginationType="progress" loop="true" zoom="true">
+            <ion-slide *ngFor="let row of image_list; let i=index">
+                <div class="swiper-zoom-container">
+                    <img [src]="upload_url+row.image_name">
+                </div>
+                <div class="two-fields">
+                    <a (click)="share(row.image_name)">Share</a>
+                    <!-- <a target="_parent" href="{{upload_url+row.image_name}}">Download</a> -->
+                    <a (click)="download(row.image_name,upload_url+row.image_name)">Download</a>
+                </div>
+            </ion-slide>
+        </ion-slides>
+    </div>
+</ion-content>

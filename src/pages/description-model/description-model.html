@@ -1,0 +1,22 @@
+
+
+<ion-content padding class="popup-modal" style="background: rgba(0, 0, 0, 0.5);">
+  
+  <div class="modal-center">
+    <!-- <div class="modal-body">
+      <div class="heading">
+        Description
+        <a (click)="dismiss()" class="close"><i class="material-icons">clear</i></a>	
+      </div>
+      <p>{{description}}</p>
+    </div>
+    
+     -->
+    <div class="modal-content in-modal">
+      <h1> {{'Description' | translate}}</h1>
+      <a (click)="dismiss()" class="close"><i class="material-icons">clear</i></a>	
+      <p [innerHTML]="description"></p>
+      
+    </div>
+  </div>
+</ion-content>

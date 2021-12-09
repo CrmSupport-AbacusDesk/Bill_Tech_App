@@ -1,0 +1,73 @@
+
+<ion-header>
+    <ion-navbar>
+        <ion-title>{{'Points Detail' | translate}}</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <!-- <div class="Product no-margin">
+        <button ion-item class="bg-product mb16" (click)="goOnOffersPage(offer_detail.id)">
+            <div class="thumbnail" style="height: inherit;">
+                <img src="{{offer_detail.offer_banner}}">
+            </div>
+            <div class="errow">
+                <div class="list-tags wthspan">
+                    <h1>{{offer_detail.title}}</h1>
+                    <p>{{offer_detail.offer_code}}</p>
+                </div>
+                <i class="material-icons">trending_flat</i>
+            </div>
+        </button>
+    </div> -->
+    
+    <ion-list>
+        <ion-item>
+            <div class="left-block">
+                <p>{{'QR Code Number' | translate}}</p>
+            </div>
+            <div class="right-block">
+                <h2>{{coupon_detail.coupon_code}}</h2>
+            </div>
+        </ion-item>
+        <ion-item>
+            <div class="left-block">
+                <p>{{'Scan Point' | translate}}</p>
+                <span *ngIf="coupon_detail.scan_by_karigar_date != null">{{coupon_detail.scan_by_karigar_date | date:'d MMMM y, h:mm a'}}</span>
+                <span *ngIf="coupon_detail.scan_by_retailer_date != null">{{coupon_detail.scan_by_retailer_date | date:'d MMMM y, h:mm a'}}</span>
+            </div>
+            <div class="right-block" [ngClass]="{ 'Success': coupon_detail.status == 'SUCCESS', 'Inprocess': coupon_detail.status == 'PENDING',  'Error': coupon_detail.status == 'Error', 'FAILURE': coupon_detail.status == 'FAILURE'}">
+                <h2>&#x20B9; {{coupon_detail.redeem_amount}}</h2>
+                <span>{{coupon_detail.status | titlecase}}</span>
+            </div>
+        </ion-item>
+        
+        <!-- <ion-item *ngIf="coupon_detail.transaction_date">
+            <div class="left-block">
+                <p>Receiving Date</p>
+            </div>
+            <div class="right-block">
+                <span>{{coupon_detail.transaction_date | date:'d MMMM y, h:mm a'}}</span>
+            </div>
+        </ion-item> -->
+        <ion-item *ngIf="coupon_detail.failure_reason">
+            <div class="left-block">
+                <p>{{'Remark' | translate}}</p>
+                <span>{{coupon_detail.failure_reason}}</span>
+            </div>
+        </ion-item>
+    </ion-list>
+    
+    
+    
+    <!-- <div class="detail-content">
+        <h1>Get Point</h1>
+        <p>{{coupon_detail.scan_date | date:'d MMMM y'}}</p>
+        <img src="assets/imgs/gift-1.svg">
+        <h2>{{coupon_detail.actual_coupon_point}} Point</h2>
+        <h3>{{coupon_detail.coupon_code}}</h3>
+        <p><strong>Product Code : </strong>{{coupon_detail.product_code ? coupon_detail.product_code : 'N/A'}}</p>
+        <p><strong>Finish : </strong>{{coupon_detail.finish ? coupon_detail.finish : 'N/A'}}</p>
+    </div> -->
+    
+</ion-content>

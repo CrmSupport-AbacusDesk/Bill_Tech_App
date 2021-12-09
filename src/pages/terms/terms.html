@@ -1,0 +1,18 @@
+
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{'Terms & Condition' | translate}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+	<div class="fix">
+		<div class="bg-banner">
+			 <img src="{{terms_detail.offer_banner}}">
+		</div>
+	</div>
+	<div class="terms-text">
+		<p [innerHTML]="terms_detail.terms">{{terms_detail.terms}}</p>
+	</div>
+
+</ion-content>

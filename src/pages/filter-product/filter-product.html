@@ -1,0 +1,33 @@
+<!--
+  Generated template for the FilterProductPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Searched Product List</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div class="image-detail" *ngIf="search==undefined">
+    <img src="assets/imgs/no_found.svg">
+  </div>
+  <div *ngIf="search!=''">
+    <div class="pr-list" (click)="goOnProductSubDetailPage(list.id)" *ngFor="let list of prod_list;let i=index">
+      <button ion-item>
+    <div class="main-bx">
+      <div class="bx-left">
+        <img src={{upload_url+list.image_name}}>
+      </div>
+      <div class="bx-right">
+        <h2>{{list.product_name |titlecase}}</h2>
+        <h2>Code : {{list.product_code |titlecase}}</h2>
+      </div>
+    </div>  
+    <i class="material-icons">trending_flat</i>
+  </button>
+  </div>
+  </div>
+</ion-content>

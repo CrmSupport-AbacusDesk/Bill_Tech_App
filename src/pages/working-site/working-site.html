@@ -1,0 +1,36 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>{{'Working Site' | translate}}</ion-title>
+        <div class="header-icons">
+            <button *ngIf="image_list.length > 0" ion-button class="cs-hdr-icons mr5" (click)="presentPopover()">
+                <i class="material-icons">more_vert</i>
+            </button>
+        </div>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="main-backgroung">
+    <div class="gal-div" *ngFor="let row of image_list">
+        <div class="border-section">
+            <p>{{row.date_created | date:'d MMM y'}}</p>
+        </div>
+        <div class="site-gallery">
+            <label *ngFor="let data of row.site_images;let i=index">
+                <div class="st-box" *ngIf="data.image_name">
+                    <img src="{{db.constant.upload_url+data.image_name}}" (click)="action == 'Select' || action == 'Select All' ? '' : viewDetail(data.image_name)">
+                    
+                    <input *ngIf="action == 'Select' || action == 'Select All'" type="checkbox" (click)="del_per = true" name="checked{{i}}" [(ngModel)]="data.checked">
+                    
+                    <a *ngIf="action == 'Select' || action == 'Select All'" class="zoom-image" (click)="viewDetail(data.image_name)"><i class="material-icons">zoom_out_map</i></a>
+                </div>
+            </label>
+        </div>
+    </div>
+    <ion-fab class="fab-btn" bottom right edge>
+        <button ion-fab mini (click)="open_camera()"><i class="material-icons">camera_alt</i></button>
+    </ion-fab>
+    
+    <div class="image-detail" *ngIf="image_list.length == 0">
+        <img src="assets/imgs/no_found.svg">
+    </div>
+</ion-content>

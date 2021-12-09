@@ -1,0 +1,59 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title >{{'Chat with us' | translate}}</ion-title>
+        
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding #scrollElement>
+    
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content  pullingIcon="arrow-dropdown"
+        pullingText="{{'Pull to refresh' | translate}}"
+        refreshingSpinner="circles"
+        refreshingText="{{'Refreshing...' | translate}}">
+    </ion-refresher-content>
+</ion-refresher>
+
+<div class="chat">
+    <ul>
+        <ng-container *ngFor="let row of feedbackdata">
+            <li class="me" *ngIf="row.feedback || row.attach_feedback">
+                <div class="entete">
+                    <h3>{{row.date_created == '0000-00-00 00:00:00' ? '' : row.date_created | date:'d MMM h:m a'}}</h3>
+                    <span class="status blue"></span>
+                </div>
+                
+                <div *ngIf="row.feedback" class="message">
+                    {{row.feedback}}
+                </div>
+                <div *ngIf="row.attach_feedback" class="message img-type" (click)="download(upload_url+row.attach_feedback)">
+                    <img src="{{upload_url+row.attach_feedback}}">
+                </div>
+            </li>
+            <li class="you" *ngIf="row.reply || row.attach_reply">
+                <div class="entete">
+                    <span class="status green"></span>
+                    <h3>{{row.reply_date == '0000-00-00 00:00:00' ? '' : row.reply_date | date:'d MMM h:m a'}}</h3>
+                </div>
+                
+                <div *ngIf="row.reply" class="message">
+                    {{row.reply}}
+                </div>
+                <div *ngIf="row.attach_reply" class="message img-type" (click)="download(upload_url+row.attach_reply)">
+                    <img src="{{upload_url+row.attach_reply}}">
+                </div>
+            </li>
+        </ng-container>
+    </ul>
+</div>
+
+</ion-content>
+
+<ion-footer>
+    <div class="chat-message" >
+        <textarea type="text" placeholder="{{'Write something' | translate}}" name="feedback" #feedback="ngModel" [(ngModel)]="data.feedback">{{'Write something' | translate}}</textarea>
+        <a class="attachment" (click)="open_camera()"><i class="material-icons">attach_file</i></a>
+        <a class="send-btn" (click)="submitFeedback()"><i class="material-icons">send</i></a>
+    </div>
+</ion-footer>

@@ -1,0 +1,8 @@
+page-about ion-header {
+  display: none;
+}
+
+page-about ion-content {
+  background: rgba(0, 0, 0, 0.6) !important;
+}
+/*# sourceMappingURL=about.css.map */
