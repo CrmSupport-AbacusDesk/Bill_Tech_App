@@ -1,0 +1,44 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>{{'Gift Gallery' | translate}}</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content padding>
+
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="{{'Pull to refresh' | translate}}" refreshingSpinner="circles" refreshingText="{{'Refreshing...' | translate}}">
+        </ion-refresher-content>
+    </ion-refresher>
+
+    <div class="fix">
+        <div class="top-nav">
+            <p>{{'Balance Points' | translate}}</p>
+            <h1>{{total_balance_point}}</h1>
+        </div>
+        <div class="search mt16">
+            <ion-searchbar type='text' placeholder="{{'Search' | translate}}" name='search' #search="ngModel" [(ngModel)]="filter.search" (ngModelChange)="getGiftList(filter.search)"></ion-searchbar>
+        </div>
+    </div>
+    <div class="listing ">
+        <button ion-item [ngClass]="{'verified' : intVal(list.coupon_points) <= intVal(list.offer_balance)  }" *ngFor="let list of gift_list; let i=index" (click)="goOnGiftDetail(list.id)">
+        <div class="head-detail" >
+            <div class="head">
+                <h1>{{list.coupon_points}}</h1>
+                <p>{{'Points' | translate}}</p>
+            </div>
+            <div class="detail">
+                <h1>{{lang !='en' ? list.hin_gift_title : list.gift_title | titlecase}}</h1>
+                <!-- <p><span>{{'Offer Points' | translate}}:</span>{{list.offer_balance  || 0  }}</p> -->
+                <p>{{lang != 'en' ? list.hin_title : list.title | titlecase}} | {{list.end_date | date:'d MMMM y'}}</p>
+            </div>
+        </div>  
+        <div class="product-img">
+            <img src="{{list.image}}">
+        </div>
+    </button>
+        <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)" *ngIf="flag!=1">
+            <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="{{'Loading more data...' | translate}}">
+            </ion-infinite-scroll-content>
+        </ion-infinite-scroll>
+    </div>
+</ion-content>

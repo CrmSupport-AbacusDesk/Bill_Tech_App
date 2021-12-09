@@ -1,0 +1,11 @@
+page-products .link-btn {
+  text-align: right;
+  padding: 10px 16px 0px;
+}
+
+page-products .link-btn a {
+  text-decoration: underline;
+  font-size: 12px;
+  color: #000;
+}
+/*# sourceMappingURL=products.css.map */

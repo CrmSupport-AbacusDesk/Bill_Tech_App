@@ -1,0 +1,8 @@
+<ion-content>
+  <div class="Selection-delete">
+    <p *ngIf="!action" (click)="select_opt('Select')">Select</p>
+    <p *ngIf="action && !del_per" (click)="select_opt('Select All')">Select All</p>
+    <p *ngIf="del_per" (click)="select_opt('Deselect')">Deselect</p>
+    <p *ngIf="action && del_per" (click)="select_opt('Delete')">Delete</p>
+  </div>
+</ion-content>

@@ -1,0 +1,17 @@
+
+<ion-header>
+    <ion-navbar>
+        <ion-title>{{'Notification' | translate}}</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding class="main-backgroung">
+    <div class="notification {{row.active ? 'active' : ''}}" *ngFor="let row of data_list" [ngClass]="{'disable':row.read}" (click)="row.active=!row.active">
+        <h1>{{lang == 'en' ? row.notification : row.hindi_notification}}</h1>
+        <p>{{row.date_created}}</p>
+    </div>
+    <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)"  *ngIf="flag!=1">
+        <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="{{'Loading more data...' | translate}}">
+        </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+</ion-content>

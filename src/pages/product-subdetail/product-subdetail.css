@@ -1,0 +1,66 @@
+page-product-subdetail .carousel {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  overflow: auto;
+}
+
+page-product-subdetail .carousel .carousel-item {
+  min-width: 130px;
+  width: 130px;
+  margin-left: 10px;
+  background: #fff;
+  border-radius: 8px;
+  border: 1px solid #414141;
+  overflow: hidden;
+}
+
+page-product-subdetail .carousel .carousel-item .img-section {
+  height: 95px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+page-product-subdetail .carousel .carousel-item .img-section img {
+  height: 90px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+page-product-subdetail .carousel .carousel-item label {
+  padding: 0px 4px;
+  background: #000000;
+  width: 100%;
+  display: block;
+  font-size: 12px;
+  text-transform: capitalize;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  text-align: center;
+  color: #fff;
+  line-height: 17px;
+}
+
+page-product-subdetail .carousel .carousel-item:last-child {
+  margin-left: 16px;
+}
+
+page-product-subdetail .carousel .carousel-item:last-child {
+  margin-right: 10px;
+}
+
+page-product-subdetail .carousel.sm-label-font .carousel-item label {
+  font-size: 10px;
+}
+/*# sourceMappingURL=product-subdetail.css.map */

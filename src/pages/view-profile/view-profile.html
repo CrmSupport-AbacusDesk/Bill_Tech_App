@@ -1,0 +1,27 @@
+
+
+
+<ion-header>
+  <ion-navbar (click)="closeModal()">
+      <ion-title ><i class="material-icons" style="padding-top: 6px;">arrow_back</i></ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding style="background: #000;">
+  <div class="modal-center">
+    <div class="cs-model-body">
+      <!-- <div class="heading-section">
+        <p></p>
+        <a (click)="closeModal()" class="cs-close"><i class="material-icons">clear</i></a>	
+      </div> -->
+      <div class="img-radius flat-img">
+        <pinch-zoom *ngIf="type != 'base_64'" class="pinch-big_zoom">
+          <img  [src]="uploadUrl+profile_pic">
+        </pinch-zoom>
+        <pinch-zoom *ngIf="type == 'base_64'" class="zoom-img">
+          <img  [src]="profile_pic">
+        </pinch-zoom>
+      </div>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,26 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>{{'FAQ' | translate}}</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    
+    <div class="image-detail" *ngIf="question_list.length == 0">
+        <img src="assets/imgs/no_found.svg">
+    </div>
+    
+    <div class="clcsd">
+        <ul class="collapsible">
+            <li *ngFor="let row of question_list;let i=index" class="{{row.active ? 'active' : ''}}">
+                <div class="collapsible-header" (click)="row.active = !row.active">
+                    <div class="counter">{{i+1}}</div>
+                    <div [innerHTML]="row.question"></div>
+                </div>
+                <div class="collapsible-body">
+                    <div [innerHTML]="row.answer"></div>
+                </div>
+            </li>
+        </ul> 
+    </div>
+</ion-content>

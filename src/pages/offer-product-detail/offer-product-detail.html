@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{'Offer Product Details'}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  
+  <div class="slide-image h200">
+    <!-- <ion-slides class="cs-slide" *ngIf="offer_prod_detail.image" [initialSlide]="0" pager autoplay="1000" speed="1000" loop="true">
+      <ion-slide *ngFor="let row of offer_prod_detail.image; let i=index" (click)="viewDetail(row.image_name)">
+        <div class="swiper-zoom-container">
+          <img [src]="upload_url+row.image_name">
+        </div>
+      </ion-slide>
+    </ion-slides> -->
+    <div class="swiper-zoom-container" *ngIf="offer_prod_detail.image">
+      <img [src]="upload_url+offer_prod_detail.image[0].image_name">
+    </div>
+  </div>
+  
+  <div class="pr-about">
+    <h3>Category : {{offer_prod_detail.category_name}}</h3>
+    <h1>Product: {{offer_prod_detail.product_name | titlecase}}</h1>
+    <p *ngIf="offer_prod_detail.desc!=''"><strong>{{'Description'}}</strong> : {{offer_prod_detail.desc}}</p>
+    <p>Code : {{offer_prod_detail.product_code}}</p>
+    <p>Price : {{offer_prod_detail.mrp}}</p>
+    <p>Karigar Point : {{offer_prod_detail.karigar_point}}</p>
+    <p>Retailer Point : {{offer_prod_detail.retailer_point}}</p>
+  </div>
+</ion-content>

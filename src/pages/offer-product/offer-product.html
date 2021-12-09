@@ -1,0 +1,37 @@
+<!--
+  Generated template for the OfferProductPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{'Offer Products' | translate}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div class="fix" >
+      <div class="search">
+          <ion-searchbar type='text' placeholder="{{'Search' | translate}}" name='search' #search="ngModel" [(ngModel)]="filter.search" 
+          (ngModelChange)="getProductList(filter.search)"></ion-searchbar>
+      </div>
+  </div>
+  <div class="pr-list"  (click)="goOnOfferProductDetailPage(list.id)" *ngFor="let list of offer_prod_list;let i=index">
+      <button ion-item>
+    <div class="main-bx">
+      <div class="bx-left">
+        <img src={{upload_url+list.image_name}}>
+      </div>
+      <div class="bx-right">
+        <!-- For Hindi -->
+        <!-- {{lang != 'en' ? list.hin_product_name : list.product_name |titlecase}} -->
+        <h2>{{list.product_name}}</h2>
+        <h2>{{list.product_code}}</h2>
+
+      </div>
+    </div>  
+    <i class="material-icons">trending_flat</i>
+  </button>
+  </div>
+</ion-content>

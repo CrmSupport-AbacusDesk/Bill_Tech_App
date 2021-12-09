@@ -1,0 +1,68 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>{{offer_detail.title | titlecase}}</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="{{'Pull to refresh' | translate}}" refreshingSpinner="circles" refreshingText="{{'Refreshing...' | translate}}">
+        </ion-refresher-content>
+    </ion-refresher>
+
+    <!-- <div class="fix"></div> -->
+    <div class="bg-banner">
+        <img src="{{offer_detail.offer_banner}}">
+    </div>
+    <div class="content-padding">
+        <div class="offer">
+            <div class="offer-detail">
+                <h1>{{lang != 'en' ? offer_detail.hin_title :offer_detail.title| titlecase}}
+                </h1>
+                <p><span>{{'Balance Points' | translate}} : </span>{{offer_balance || 0}}</p>
+                <p><span>{{'Valid Upto' | translate}} :</span> {{offer_detail.end_date | date:'d MMMM y'}}</p>
+            </div>
+            <!-- <div class="terms" *ngIf="offer_detail.term_image!='' || offer_detail.hin_term_image!=''"  (click)="viewDetail()">
+                <a>{{'A D Detail' | translate}}</a>
+            </div> -->
+            <div class="terms" (click)="goOntermsPage(offer_detail.id)">
+                <a>{{'Terms & Condition' | translate}}</a>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="listing mt0">
+        <!-- <div class="profile-detail point-detail" *ngIf="offer_detail.term_image!='' || offer_detail.hin_term_image!=''" (click)="viewDetail()">
+            <div class="deflex">
+                <ul>
+                    <li class="refcode">
+                        <h1>{{'A D Detail' | translate}}</h1>
+                        <i class="material-icons">arrow_right_alt</i>
+                    </li>
+                </ul>
+            </div>
+        </div> -->
+        <button ion-item [ngClass]="{'verified' : list.coupon_points <= offer_balance}" *ngFor="let list of gift_list;let i=index" (click)="goOnGiftDetail(list.id)">
+            <div class="head-detail">
+                <div class="head">
+                    <h1>{{list.coupon_points}}</h1>
+                    <p>{{'Points' | translate}}</p>
+                </div>
+                <div class="detail">
+                    <h1>{{lang !='en' ? list.hin_gift_title : list.gift_title | titlecase}}</h1>
+                </div>
+            </div>  
+            <div class="product-img">
+                <img src="{{list.image}}">
+            </div>
+        </button>
+        <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)" *ngIf="flag!=1">
+            <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="{{'Loading more data...' | translate}}">
+            </ion-infinite-scroll-content>
+        </ion-infinite-scroll>
+    </div>
+
+
+</ion-content>

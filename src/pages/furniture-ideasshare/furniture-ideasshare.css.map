@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAKY,yBALa,CACrB,UAAU,CAEN,UAAU,CAEN,mBAAmB,CACnB;EACI,UAAU,EAAE,IAAI;CACnB",
+    "sources": [
+        "furniture-ideasshare.scss"
+    ],
+    "names": [],
+    "file": "furniture-ideasshare.css"
+}

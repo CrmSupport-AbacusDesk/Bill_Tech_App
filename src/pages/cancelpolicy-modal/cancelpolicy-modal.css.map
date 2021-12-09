@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAEC,uBAFsB,CAEtB,UAAU,CACV;EACC,OAAO,EAAE,IAAI;CACb;;AALF,AAOC,uBAPsB,CAOtB,QAAQ,CACL;EACI,KAAK,EAAE,IAAI;EACX,MAAM,EAAE,KAAK;EACb,OAAO,EAAE,cAAc;EAC7B,UAAU,EAAE,UAAU;EACtB,UAAU,EAAE,IAAI;CACb;;AAdL,AAkBE,uBAlBqB,CAgBtB,WAAW,AAET,YAAY,CACb;EACC,UAAU,EAAE,kBAAkB,CAAC,UAAU;EACzC,OAAO,EAAE,IAAI;EACV,WAAW,EAAE,MAAM;EACnB,eAAe,EAAE,MAAM;CAC1B",
+    "sources": [
+        "cancelpolicy-modal.scss"
+    ],
+    "names": [],
+    "file": "cancelpolicy-modal.css"
+}

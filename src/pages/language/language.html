@@ -1,0 +1,31 @@
+
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-title>
+      <div class="logo no-margin" >
+        <img src="assets/imgs/logo.png">
+      </div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div class="heading line mt18 mb16">
+    <p class="font16">भाषा चुनिए / Choose Your Language</p>
+  </div>
+  <ion-list radio-group class="mt15" name="lang" [(ngModel)]="lang">
+    <ion-item>
+      <ion-label>अंग्रेज़ी  (English)</ion-label>
+      <ion-radio (click)="set_lang()" checked="{{'en' == lang}}" value="en"></ion-radio>
+    </ion-item>    
+    
+    <ion-item>
+      <ion-label>हिंदी (Hindi)</ion-label>
+      <ion-radio (click)="set_lang()" checked="{{'hin' == lang}}" value="hin"></ion-radio>
+    </ion-item>
+    
+  </ion-list>
+</ion-content>
+<ion-footer>
+  <button ion-button class="cs-btn no-margin" *ngIf="lang!=''" (click)="karigar_id ? update_lang() : continue()">{{'Continue' | translate}}</button>
+</ion-footer>

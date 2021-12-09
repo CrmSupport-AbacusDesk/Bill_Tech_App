@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAEI,iBAFa,CAEb,WAAW,CAAA;EACP,UAAU,EAAE,MAAM;EAClB,OAAO,EAAE,QAAQ;CAKpB;;AATL,AAMQ,iBANS,CAEb,WAAW,CAIP,GAAG,CAAA;EACC,MAAM,EAAE,IAAI;CACf",
+    "sources": [
+        "advance-text.scss"
+    ],
+    "names": [],
+    "file": "advance-text.css"
+}

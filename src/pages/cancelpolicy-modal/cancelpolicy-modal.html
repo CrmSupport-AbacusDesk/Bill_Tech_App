@@ -1,0 +1,72 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>cancelpolicy-modal</ion-title>
+    </ion-navbar>
+</ion-header>
+
+
+
+
+<ion-content padding class="popup-modal">
+
+    <div class="modal-center">
+        <div class="modal-content in-modal">
+            <form #f="ngForm">
+                <h1>{{'Bill Tech' | translate}} </h1>
+                <p class="highligt-error" *ngIf="karigar_detail.document_image == '' || karigar_detail.document_no == ''">* Your document details are missing !</p>
+
+                <p>{{'Are you sure to redeem your'| translate}} {{gift_detail.coupon_points}} {{'points' |translate}}?</p>
+
+                <div class="number-content">
+                    <p>{{'Enter your 6 digit number that sent to' | translate}} <span class="blue-color lineh24">+91 {{karigar_detail.mobile_no}}</span>
+                    </p>
+                </div>
+                <div class="input-section">
+                    <div class="input-adjust m0">
+                        <input class="pl16 radius-none" type="tel" name="otp" placeholder="{{'Enter OTP' | translate}}" #otp="ngModel" [(ngModel)]="data.otp" (ngModelChange)="otpvalidation()" required>
+                        <div class="otp-error" *ngIf="!otp_value && otp?.touched">
+                            <p>{{'Wrong OTP value' | translate}}</p>
+                        </div>
+                    </div>
+                    <div class="resend">
+                        <a (click)="resendOtp()">{{'Resend' | translate}}</a>
+                    </div>
+                </div>
+
+                <div class="check-bx">
+                    <ion-item>
+                        <ion-checkbox color="secondary" checked="true" name="check1" #check1="ngModel" [(ngModel)]="data.check1" (click)="myNumber()">
+                        </ion-checkbox>
+                    </ion-item>
+                    <p>{{'Same as login number' | translate}}</p>
+                </div>
+
+                <div class="input-section">
+                    <div class="input-adjust m0">
+                        <input class="pl16 radius-none" type="tel" name="payment_number" placeholder="Paytm Mobile Number" #payment_number="ngModel" [(ngModel)]="data.payment_number" minlength="10" maxlength="10"  required>
+                        <div class="otp-error" *ngIf="!payment_number && otp?.payment_number">
+                            <p>{{data.payment_type}} number required</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <div class="input-section">
+                    <div class="input-adjust m0">
+                        <textarea class="pl16 radius-none" type="text" name="shipping_address" placeholder="{{'Enter Shipping Address' | translate}}" #shipping_address="ngModel" [(ngModel)]="data.shipping_address" required></textarea>
+                    </div>
+                </div> -->
+
+                <div class="check-bx">
+                    <ion-item>
+                        <ion-checkbox color="secondary" checked="true" name="check" #check="ngModel" [(ngModel)]="data.check" required></ion-checkbox>
+                    </ion-item>
+                    <p>{{'I have read' | translate}} <a (click)="goOnCancelationPolicy()">{{'cancelation policy' | translate}}</a></p>
+                </div>
+                <div class="footer-btn">
+                    <button class="outline-btn" (click)="dismiss()">{{'No' | translate}}</button>
+                    <button class="fill-btn" [disabled]="!data.check ||!data.otp ||!otp_value || karigar_detail.document_image == '' || karigar_detail.document_no == '' " (click)="f.form.valid && submit()">{{'Yes' | translate}}</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</ion-content>

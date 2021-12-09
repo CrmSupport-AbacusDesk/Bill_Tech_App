@@ -1,0 +1,66 @@
+page-news .latest-news .news-list .thumb {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 170px;
+  overflow: hidden;
+}
+
+page-news .latest-news .news-list .thumb img {
+  width: 100%;
+}
+
+page-news .latest-news .news-list .desc {
+  padding: 10px;
+  -webkit-box-shadow: 0px 3px 6px 0px #ccc;
+          box-shadow: 0px 3px 6px 0px #ccc;
+  margin-bottom: 15px;
+}
+
+page-news .latest-news .news-list .desc .d-data {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding-bottom: 10px;
+  border-bottom: dashed 1px #ccc;
+}
+
+page-news .latest-news .news-list .desc .d-data p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+page-news .latest-news .news-list .desc .d-data p i {
+  font-size: 19px;
+  margin-right: 5px;
+}
+
+page-news .latest-news .news-list .desc .d-data p:nth-child(2) {
+  font-weight: 600;
+}
+
+page-news .latest-news .news-list .desc .description {
+  margin-top: 10px;
+}
+
+page-news .latest-news .news-list .desc .description p {
+  line-height: 24px;
+}
+/*# sourceMappingURL=news.css.map */

@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AACA,QADQ,CACR,SAAS,CAAA;EACL,QAAQ,EAAE,QAAQ;EAClB,GAAG,EAAE,IAAI;EACT,IAAI,EAAE,IAAI;CAMb;;AAVD,AAMI,QANI,CACR,SAAS,CAKL,QAAQ,CAAA;EACJ,SAAS,EAAE,OAAO;EAClB,KAAK,EAAE,OAAO;CACjB",
+    "sources": [
+        "otp.scss"
+    ],
+    "names": [],
+    "file": "otp.css"
+}

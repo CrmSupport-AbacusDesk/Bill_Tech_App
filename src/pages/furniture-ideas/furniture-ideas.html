@@ -1,0 +1,22 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>{{'Furniture Ideas' | translate}}</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <div class="img-container" (click)="goOnfurnituredetailPage(row)" *ngFor="let row of category_list">
+        <img src="{{upload_url+row.image_name}}">
+        <div class="content-box">
+            <p>{{row.category}}</p>
+        </div>
+    </div>
+    
+    <div class="image-detail" *ngIf="category_list.length == 0">
+        <img src="assets/imgs/no_found.svg">
+    </div>
+    <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)"  *ngIf="flag!=1">
+        <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="{{'Loading more data...' | translate}}">
+        </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+</ion-content>

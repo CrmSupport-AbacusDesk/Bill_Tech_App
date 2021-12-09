@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAKE,yBALuB,CAGrB,WAAW,AAEZ,YAAY,CACb;EACC,UAAU,EAAE,kBAAkB,CAAC,UAAU;EACzC,OAAO,EAAE,IAAI;EACV,WAAW,EAAE,MAAM;EACnB,eAAe,EAAE,MAAM;CAC1B;;AAXH,AAgBQ,yBAhBiB,CAcrB,cAAc,CAEV,CAAC,CACD;EACI,SAAS,EAAE,IACf;CAAC;;AAnBT,AAsBI,yBAtBqB,CAsBrB,QAAQ,CACR;EACI,KAAK,EAAE,IAAI;EACX,MAAM,EAAE,KAAK;EACb,OAAO,EAAE,cAAc;EACvB,UAAU,EAAE,UAAU;CACzB",
+    "sources": [
+        "receive-remark-modal.scss"
+    ],
+    "names": [],
+    "file": "receive-remark-modal.css"
+}
