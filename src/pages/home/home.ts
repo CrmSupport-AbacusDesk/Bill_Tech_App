@@ -36,7 +36,6 @@ import { ArrivalProductPage } from '../arrival-product/arrival-product';
 import { OfferProductPage } from '../offer-product/offer-product';
 import { MainCategoryPage } from '../main-category/main-category';
 import { ProfileEditModalPage } from '../profile-edit-modal/profile-edit-modal';
-import { OrignalProductModalPage } from '../orignal-product-modal/orignal-product-modal';
 @Component({
     selector: 'page-home',
     templateUrl: 'home.html'
@@ -307,10 +306,6 @@ export class HomePage {
                                 console.log(r);
                                 
 
-                                if(r['status'] == 'COMPANYCOUPON'){
-                                    this.orignalProduct();
-                                    return;
-                                }
 
                                 if(r['status'] == 'INVALID'){
                                     this.translate.get("Invalid Coupon Code")
@@ -580,12 +575,7 @@ export class HomePage {
         return;
     }
 
-    orignalProduct()
-    {
-        let contactModal = this.modalCtrl.create(OrignalProductModalPage);
-        contactModal.present();
-        return;
-    }
+
 
 
     get_user_lang()

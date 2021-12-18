@@ -80,8 +80,6 @@ import { FilterProductPageModule } from '../pages/filter-product/filter-product.
 import { MainCategoryPageModule } from '../pages/main-category/main-category.module';
 import { ProfileEditModalPage } from '../pages/profile-edit-modal/profile-edit-modal';
 import { ProfileEditModalPageModule } from '../pages/profile-edit-modal/profile-edit-modal.module';
-import { OrignalProductModalPage } from '../pages/orignal-product-modal/orignal-product-modal';
-import { OrignalProductModalPageModule } from '../pages/orignal-product-modal/orignal-product-modal.module';
 export function createTranslateLoader(http: HttpClient) {
     return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
@@ -152,7 +150,6 @@ export function createTranslateLoader(http: HttpClient) {
         FilterProductPageModule,
         MainCategoryPageModule,
         ProfileEditModalPageModule,
-        OrignalProductModalPageModule,
         TranslateModule.forRoot({
             loader: {
                 provide: TranslateLoader,
@@ -174,7 +171,6 @@ export function createTranslateLoader(http: HttpClient) {
         LanguagePage,
         SitePopoverPage,
         ProfileEditModalPage,
-        OrignalProductModalPage
     ],
     providers: [
         StatusBar,
