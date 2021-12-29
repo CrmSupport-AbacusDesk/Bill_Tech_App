@@ -118,7 +118,7 @@ export class ProfilePage {
                             }]
                         });
                         alert2.present();
-                        this.app.getRootNav().setRoot(LanguagePage);
+                        this.navCtrl.setRoot(LanguagePage);
                         // this.app.getRootNav().setRoot(SelectRegistrationTypePage);
                         
                     }
@@ -394,7 +394,7 @@ export class ProfilePage {
         let image = "";
         let app_url = "https://play.google.com/store/apps/details?id=com.abacusdesk.billtech";
         
-        this.socialSharing.share("Hey there join me (" + this.karigar_detail.full_name + "-" + this.karigar_detail.mobile_no + ") on Bill Tech, a Mechanic & Retailer app. Enter my code *" + this.karigar_detail.referral_code + "* to earn points back in your wallet!", "Reffral", image, app_url)
+        this.socialSharing.share("Hey there join me (" + this.karigar_detail.full_name + "-" + this.karigar_detail.mobile_no + ") on Bill Tech, a Electrician & Retailer app. Enter my code *" + this.karigar_detail.referral_code + "* to earn points back in your wallet!", "Reffral", image, app_url)
         .then(resp => {
             console.log(resp);
             
@@ -494,40 +494,40 @@ export class ProfilePage {
     }
     
     
-    onCardChange(evt: any) {
-        let actionsheet = this.actionSheetController.create({
-            title:this.upl_file,
-            cssClass: 'cs-actionsheet',
+    // onCardChange(evt: any) {
+    //     let actionsheet = this.actionSheetController.create({
+    //         title:this.upl_file,
+    //         cssClass: 'cs-actionsheet',
             
-            buttons:[{
-                cssClass: 'sheet-m',
-                text: this.cam,
-                icon:'camera',
-                handler: () => {
-                    console.log("Camera Clicked");
-                    this.takeCardPhoto();
-                }
-            },
-            {
-                cssClass: 'sheet-m1',
-                text: this.gal,
-                icon:'image',
-                handler: () => {
-                    console.log("Gallery Clicked");
-                    this.getCardImage();
-                }
-            },
-            {
-                cssClass: 'cs-cancel',
-                text: this.cancl,
-                role: 'cancel',
-                handler: () => {
-                    console.log('Cancel clicked');
-                }
-            }]
-        });
-        actionsheet.present();
-    }
+    //         buttons:[{
+    //             cssClass: 'sheet-m',
+    //             text: this.cam,
+    //             icon:'camera',
+    //             handler: () => {
+    //                 console.log("Camera Clicked");
+    //                 this.takeCardPhoto();
+    //             }
+    //         },
+    //         {
+    //             cssClass: 'sheet-m1',
+    //             text: this.gal,
+    //             icon:'image',
+    //             handler: () => {
+    //                 console.log("Gallery Clicked");
+    //                 this.getCardImage();
+    //             }
+    //         },
+    //         {
+    //             cssClass: 'cs-cancel',
+    //             text: this.cancl,
+    //             role: 'cancel',
+    //             handler: () => {
+    //                 console.log('Cancel clicked');
+    //             }
+    //         }]
+    //     });
+    //     actionsheet.present();
+    // }
     
     
     takeCardPhoto()
@@ -546,41 +546,41 @@ export class ProfilePage {
             console.log(this.karigar_detail.visiting_card);
             if(this.karigar_detail.visiting_card)
             {
-                this.onUploadCard(this.karigar_detail.visiting_card);
+                // this.onUploadCard(this.karigar_detail.visiting_card);
             }
         }, (err) => {
         });
     }
     
-    getCardImage()
-    {
-        const options: CameraOptions = {
-            quality: 70,
-            destinationType: this.camera.DestinationType.DATA_URL,
-            sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
-            saveToPhotoAlbum:false
-        }
-        this.camera.getPicture(options).then((imageData) => {
-            this.karigar_detail.visiting_card = 'data:image/jpeg;base64,' + imageData;
-            console.log(this.karigar_detail.visiting_card);
-            if(this.karigar_detail.visiting_card)
-            {
-                this.onUploadCard(this.karigar_detail.visiting_card);
-            }
-        }, (err) => {
-        });
-    }
+    // getCardImage()
+    // {
+    //     const options: CameraOptions = {
+    //         quality: 70,
+    //         destinationType: this.camera.DestinationType.DATA_URL,
+    //         sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
+    //         saveToPhotoAlbum:false
+    //     }
+    //     this.camera.getPicture(options).then((imageData) => {
+    //         this.karigar_detail.visiting_card = 'data:image/jpeg;base64,' + imageData;
+    //         console.log(this.karigar_detail.visiting_card);
+    //         if(this.karigar_detail.visiting_card)
+    //         {
+    //             this.onUploadCard(this.karigar_detail.visiting_card);
+    //         }
+    //     }, (err) => {
+    //     });
+    // }
     
-    onUploadCard(doc_image)
-    {
-        console.log(doc_image);
-        this.service.post_rqst( {'karigar_id': this.service.karigar_id,'visiting_card':doc_image},'app_karigar/updateVisitingCard')
-        .subscribe((r) =>
-        {
-            this.edit2='';
-            this.showSuccess("visiting Card Updated")   
-        });
-    }
+    // onUploadCard(doc_image)
+    // {
+    //     console.log(doc_image);
+    //     this.service.post_rqst( {'karigar_id': this.service.karigar_id,'visiting_card':doc_image},'app_karigar/updateVisitingCard')
+    //     .subscribe((r) =>
+    //     {
+    //         this.edit2='';
+    //         this.showSuccess("visiting Card Updated")   
+    //     });
+    // }
     
     
     profileEdit(){

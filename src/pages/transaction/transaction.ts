@@ -7,6 +7,7 @@ import { ReceiveRemarkModalPage } from '../receive-remark-modal/receive-remark-m
 import { Storage } from '@ionic/storage';
 import { TranslateService } from '@ngx-translate/core';
 import * as jwt_decode from "jwt-decode";
+import { FeedbackPage } from '../feedback/feedback';
 
 @IonicPage()
 @Component({
@@ -106,14 +107,24 @@ export class TransactionPage {
     
     recvConfirmation(gift_id)
     {
-        let ReceiveModal = this.modalCtrl.create(ReceiveRemarkModalPage,{'gift_id':gift_id});
-        ReceiveModal.present();
+        // let ReceiveModal = this.modalCtrl.create(ReceiveRemarkModalPage,{'gift_id':gift_id});
+        // ReceiveModal.present();
+        this.service.post_rqst({'id':gift_id,'karigar_id':this.service.karigar_id},'app_karigar/redeemReceiveStatus').subscribe(r=>
+            {
+              console.log(r);
+              // this.navCtrl.setRoot(TabsPage,{index:'3'});
+            //   this.navCtrl.push(TransactionPage);
+              this.showSuccess('Thank you for your feedback!')
+              this.getTransactionDetail();
+              // this.getTransactionDetail()
+            });
+            // alert.present();
     }
     
     showSuccess(text)
     {
         let alert = this.alertCtrl.create({
-            title:'Success!',
+            // title:'Success!',
             cssClass:'action-close',
             subTitle: text,
             buttons: ['OK']
@@ -167,10 +178,17 @@ export class TransactionPage {
             if((activeView == 'HomePage' || activeView == 'GiftListPage' || activeView == 'TransactionPage' || activeView == 'ProfilePage') && (previuosView != 'HomePage' && previuosView != 'GiftListPage'  && previuosView != 'TransactionPage' && previuosView != 'ProfilePage')) {
                 
                 console.log(previuosView);
-                this.navCtrl.popToRoot();
+                this.navCtrl.popToRoot();   
             }
         }
         
+    }
+
+    helpChat(reqId){
+        console.log('====================================');
+        console.log(reqId);
+        console.log('====================================');
+        this.navCtrl.push(FeedbackPage, {'code': "My Redeem Gift Request ID is - " + reqId + " I want to know the status of my request" })
     }
     
 }

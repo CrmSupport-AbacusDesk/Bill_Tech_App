@@ -23,11 +23,8 @@ export class ContactPage {
   go_to_map()
   {
     console.log('map');
-    let destination = 28.679192 + ',' + 77.211820;
-    
-    // this.get_user_lang();    
-    
-    let label = encodeURI('A Bunglow, near Petrol Pump, Malka Ganj, New Delhi, Delhi 110007');
+    let destination = 28.6862898 + ',' + 77.3808413;    
+    let label = encodeURI('Mohan nagar, Sahibabad, Ghaziabad, U.P.');
     
     window.open('geo:0,0?q=' + destination + '(' + label + ')', '_system');
   }

@@ -155,24 +155,24 @@ export class HomePage {
             .subscribe(resp=>{
                 this.update_text = resp;
             })
-            this.translate.get("To scan your coupon you must add paytm number to your profile")
-            .subscribe((resp)=>{
-                let paytmNumberAlert = this.alertCtrl.create({
-                    title: this.alert,
-                    message: resp+'!',
-                    buttons: [
-                        {text: this.cancl, },
-                        {text: this.update_text,
-                            handler: () => {
-                                let contactModal = this.modalCtrl.create(ProfileEditModalPage, {"user_detail":this.karigar_detail});
-                                contactModal.present();
-                            } 
-                        }
-                    ]
-                });
-                paytmNumberAlert.present();
-            });
-            return
+            // this.translate.get("To scan your coupon you must add paytm number to your profile")
+            // .subscribe((resp)=>{
+            //     let paytmNumberAlert = this.alertCtrl.create({
+            //         title: this.alert,
+            //         message: resp+'!',
+            //         buttons: [
+            //             {text: this.cancl, },
+            //             {text: this.update_text,
+            //                 handler: () => {
+            //                     let contactModal = this.modalCtrl.create(ProfileEditModalPage, {"user_detail":this.karigar_detail});
+            //                     contactModal.present();
+            //                 } 
+            //             }
+            //         ]
+            //     });
+            //     paytmNumberAlert.present();
+            // });
+            // return
         }
         this.scan();
        
@@ -335,22 +335,30 @@ export class HomePage {
                                     })
                                     return;
                                 }
+                                else if(r['status'] == 'VALID'){
+                                    this.translate.get(" Point has been add your wallet")
+                                        .subscribe(resp=>{
+                                            this.showSuccess( r['coupon_value'] + resp);
+                                        })
+                                        return;
+                                }
+                               
                                 
-                                if(r['result'].status == 'SUCCESS'){
-                                    this.translate.get(" rupees has been transfer into your paytm wallet")
-                                    .subscribe(resp=>{
-                                        this.showSuccess( r['coupon_value'] + resp);
-                                        // this.showAlert(resp);
-                                    })
-                                }
-                                else if(r['result'].status == 'PENDING'){
-                                    r['result'].statusMessage;
-                                    this.translate.get("Request InProcess, Check Paytm Wallet After Some Time!")
-                                    .subscribe(resp=>{
-                                        this.showAlert(resp);
-                                    })
-                                }
-                                this.getData();
+                                // if(r['result'].status == 'SUCCESS'){
+                                //     this.translate.get(" rupees has been transfer into your paytm wallet")
+                                //     .subscribe(resp=>{
+                                //         this.showSuccess( r['coupon_value'] + resp);
+                                   
+                                //     })
+                                // }
+                                // else if(r['result'].status == 'PENDING'){
+                                //     r['result'].statusMessage;
+                                //     this.translate.get("Request InProcess, Check Paytm Wallet After Some Time!")
+                                //     .subscribe(resp=>{
+                                //         this.showAlert(resp);
+                                //     })
+                                // }
+                                // this.getData();
                             });
                         }
                         else{
@@ -493,7 +501,7 @@ export class HomePage {
         let image = "";
         let app_url = "https://play.google.com/store/apps/details?id=com.abacusdesk.billtech";
         
-        this.socialSharing.share("Hey there join me (" + this.karigar_detail.full_name + "-" + this.karigar_detail.mobile_no + ") on Bill Tech , a Mechanic & Retailer app. Enter my code *" + this.karigar_detail.referral_code + "* to earn points back in your wallet!", "Reffral", image, app_url)
+        this.socialSharing.share("Hey there join me (" + this.karigar_detail.full_name + "-" + this.karigar_detail.mobile_no + ") on Bill Tech , a Electrician & Retailer app. Enter my code *" + this.karigar_detail.referral_code + "* to earn points back in your wallet!", "Reffral", image, app_url)
         .then(resp=>{
             console.log(resp);
             
