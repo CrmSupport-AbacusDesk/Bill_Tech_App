@@ -43,9 +43,8 @@
         <p>Price : {{prod_detail.mrp}}</p>
         
     </div>
-    
-    
-    <div class="heading line mt0 mb10">
+
+    <!-- <div class="heading line mt0 mb10">
         <p>Related Products</p>
     </div>
     
@@ -54,13 +53,13 @@
         <div class="carousel-item" *ngFor="let row of assign_prod; let i=index"  (click)="getProductDetail(row.id)">
             <div class="img-section">
                 <img [src]="upload_url+row.image_name">
-                <!-- <img src="assets/imgs/default-image.png" *ngIf="!row.image.length"> -->
+                <img src="assets/imgs/default-image.png" *ngIf="!row.image.length">
             </div>
             <label>{{row.product_name}}</label>
             <label>{{row.product_code}}</label>
             <label>{{row.mrp}}</label>
         </div>
-    </div>
+    </div> -->
     
     
     

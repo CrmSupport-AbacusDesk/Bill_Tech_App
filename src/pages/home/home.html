@@ -28,7 +28,7 @@
         <div *ngIf="appbanner.length==1">
             <img [src]="uploadUrl+appbanner[0].banner">
         </div>
-        <div *ngIf="appbanner.length==0">
+        <div *ngIf="appbanner.length <= 0">
             <img src="../../assets/imgs/appbanner.png">
         </div>
     </div>

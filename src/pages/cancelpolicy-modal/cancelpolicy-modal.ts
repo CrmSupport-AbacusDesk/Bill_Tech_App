@@ -23,6 +23,7 @@ export class CancelpolicyModalPage {
     gift_id:any='';
     gift_detail:any='';
     loading:Loading;
+    mobile_no:number=0;
     
     
     constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController,public service:DbserviceProvider,public alertCtrl:AlertController,public loadingCtrl:LoadingController) {
@@ -33,9 +34,11 @@ export class CancelpolicyModalPage {
         this.karigar_id = this.navParams.get('karigar_id');
         console.log(this.karigar_id);
         this.gift_id = this.navParams.get('gift_id');
+        this.mobile_no = this.navParams.get('mobile_no');
         console.log(this.gift_id);
         this.getOtpDetail();
         this.presentLoading();
+        console.log("mobile no===>",this.karigar_detail.mobile_no)
     }
     
     
@@ -51,7 +54,7 @@ export class CancelpolicyModalPage {
     getOtpDetail()
     {
         console.log('otp');
-        this.service.post_rqst({'karigar_id':this.service.karigar_id,'gift_id':this.gift_id},'app_karigar/sendOtp')
+        this.service.post_rqst({'karigar_id':this.service.karigar_id,'gift_id':this.gift_id,"mobile_no":this.mobile_no},'app_karigar/sendOtp')
         .subscribe((r)=>
         {
             console.log(r);
@@ -62,6 +65,19 @@ export class CancelpolicyModalPage {
             this.gift_detail=r['gift'];
         });
     }
+    // address()
+    // {
+    //     console.log(this.data);
+    //     if(this.data.check1==true)
+    //     {
+    //         this.data.shipping_address=this.karigar_detail.address + ' ,'+this.karigar_detail.city + ' ,'+this.karigar_detail.district +' ,'+ this.karigar_detail.state +' ,'+ this.karigar_detail.pincode;
+    //     }
+    //     else{
+    //         this.data.shipping_address='';
+    //     }
+        
+        
+    // }
     resendOtp()
     {
         
@@ -94,8 +110,6 @@ export class CancelpolicyModalPage {
         else{
             this.data.payment_number='';
         }
-        
-        
     }
 
 
@@ -105,7 +119,7 @@ export class CancelpolicyModalPage {
         this.presentLoading();
         console.log('data');
         console.log(this.data);
-        this.service.post_rqst( {'karigar_id':this.service.karigar_id ,"gift_id": this.gift_id,'offer_id':this.gift_detail.offer_id,'payment_number':this.data.payment_number},'app_karigar/redeemRequest')
+        this.service.post_rqst( {'karigar_id':this.service.karigar_id ,"gift_id": this.gift_id,'offer_id':this.gift_detail.offer_id,'payment_number':this.data.payment_number,"shipping_address":this.data.shipping_address},'app_karigar/redeemRequest')
         .subscribe( (r) =>
         {
             this.loading.dismiss();

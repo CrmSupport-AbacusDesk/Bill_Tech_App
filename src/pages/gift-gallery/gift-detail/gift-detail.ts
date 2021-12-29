@@ -26,6 +26,7 @@ export class GiftDetailPage {
     tokenInfo:any={};
     lang:any='';
     uploadUrl:any='';
+    mobile_no:number=0;
     constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController,public service:DbserviceProvider,public loadingCtrl:LoadingController,private app: App,public storage:Storage,public translate:TranslateService,public db:DbserviceProvider,public constant:ConstantProvider,public toastCtrl:ToastController) {}
     
     ionViewDidLoad() {
@@ -38,7 +39,7 @@ export class GiftDetailPage {
     }
     
     presentCancelPolicyModal() {
-        let contactModal = this.modalCtrl.create(CancelpolicyModalPage,{'karigar_id':this.service.karigar_id,'gift_id':this.gift_id});
+        let contactModal = this.modalCtrl.create(CancelpolicyModalPage,{'karigar_id':this.service.karigar_id,'gift_id':this.gift_id,"mobile_no":this.mobile_no});
         contactModal.present();
         console.log('otp');
     }
@@ -82,6 +83,7 @@ export class GiftDetailPage {
             console.log(r);
             this.loading.dismiss();
             this.gift_detail=r['gift'];
+            this.mobile_no=r['karigar'].mobile_no;
             this.rating_star=parseInt(r['gift'].rating);
             console.log(this.gift_detail);
             

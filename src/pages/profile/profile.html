@@ -59,10 +59,10 @@
                         <h1 *ngIf="karigar_detail.dob !='null'">{{karigar_detail.dob| date:'d MMM,y'}} </h1>
 
                     </li>
-                    <li class="bdr-top wp100">
+                    <!-- <li class="bdr-top wp100">
                         <p>{{'Paytm Number' | translate}}</p>
                         <h1>{{karigar_detail.payment_number ? karigar_detail.payment_number : 'N/A'}}</h1>
-                    </li>
+                    </li> -->
                     <li class="bdr-top wp100">
                         <p>{{'Address' | translate}}</p>
                         <h1>{{karigar_detail.address |titlecase}} {{!karigar_detail.state ? 'N/A' :karigar_detail.state |titlecase}} {{!karigar_detail.district ? 'N/A' : ', '+karigar_detail.district |titlecase}} {{!karigar_detail.city ? 'N/A' : ', '+karigar_detail.city
@@ -89,7 +89,7 @@
     </div>
 
 
-    <div class="heading line mt18 mb16">
+    <!-- <div class="heading line mt18 mb16">
         <p>{{'Visting Card' | translate}}</p>
         <div class="little-edit">
             <a *ngIf="edit2==''"><i class="material-icons" (click)="onCardChange();edit2 = '1' ">edit</i></a>
@@ -98,7 +98,7 @@
     </div>
     <div class="adhar">
         <img src="{{karigar_detail.visiting_card}}">
-    </div>
+    </div> -->
     
 
 

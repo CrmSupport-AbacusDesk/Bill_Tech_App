@@ -88,10 +88,6 @@ export class PointListPage {
         this.coupon_list=r['coupon'];
         this.karigar_point=r['karigar'];
         this.welcome_points=r['welcome_points'];
-        this.my_ref=r['ref_my_kar'];
-        console.log('====================================');
-        console.log(this.my_ref);
-        console.log('====================================');
         this.ref_points=r['ref_kar'];
         console.log('====================================');
         console.log(this.ref_points);

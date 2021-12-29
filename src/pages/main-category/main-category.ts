@@ -3,6 +3,8 @@ import { TranslateService } from '@ngx-translate/core';
 import { IonicPage, Loading, LoadingController, NavController, NavParams } from 'ionic-angular';
 import { ConstantProvider } from '../../providers/constant/constant';
 import { DbserviceProvider } from '../../providers/dbservice/dbservice';
+import { ProductDetailPage } from '../product-detail/product-detail';
+import { ProductSubdetailPage } from '../product-subdetail/product-subdetail';
 import { ProductsPage } from '../products/products';
 
 /**
@@ -82,7 +84,7 @@ export class MainCategoryPage {
   }
   
   goOnProductPage(id){
-    this.navCtrl.push(ProductsPage,{'id':id})
+    this.navCtrl.push(ProductDetailPage ,{'id':id})
   }
   
 }

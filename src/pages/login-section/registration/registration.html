@@ -78,10 +78,10 @@
                         <ion-input type="number" name="mobile_no" #mobile_no="ngModel" [(ngModel)]="data.mobile_no" required (keypress)="MobileNumber($event)" readonly></ion-input>
                     </ion-item>
 
-                    <ion-item class="cs-input" [ngClass]="{'error':f.submitted && payment_number?.invalid}">
+                    <!-- <ion-item class="cs-input" [ngClass]="{'error':f.submitted && payment_number?.invalid}">
                         <ion-label floating>{{'Paytm Number' | translate}}</ion-label>
-                        <ion-input type="number" name="payment_number" maxlength="10" minlength="10" #payment_number="ngModel" [(ngModel)]="data.payment_number"  (keypress)="MobileNumber($event)"></ion-input>
-                    </ion-item>
+                        <ion-input type="tel" name="payment_number"  minlength="10" maxlength="10" #payment_number="ngModel" [(ngModel)]="data.payment_number"></ion-input>
+                    </ion-item> -->
                
                 
                 <!--//////////////// importaint //////////////-->

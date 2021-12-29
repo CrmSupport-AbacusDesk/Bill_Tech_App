@@ -17,7 +17,7 @@
         <h2> {{'Last updated' | translate}} {{ (karigar_point.balance_update!='0000-00-00') ? (karigar_point.balance_update | date:'d MMMM y') : ('00-00-0000') }}</h2>
     </div>
     
-    <ion-list >
+    <!-- <ion-list >
         <ion-item style="background: #f5f7ff;">
             <div class="left-block">
                 <p>{{'Welcome Point' | translate}}</p>
@@ -30,13 +30,13 @@
         <ion-item style="background: #f5f7ff;" *ngIf="my_ref != null">
             <div class="left-block">
                 <p>{{'Referral Point' | translate}}</p>
-                <span>{{my_ref.date_refered | date:'d MMMM y'}}</span>
+                <span>{{my_ref.date_created | date:'d MMMM y'}}</span>
             </div>
             <div class="right-block">
-                <h2 style="font-size: 24px;">{{my_ref.coupon_value}}</h2>
+                <h2 style="font-size: 24px;">{{my_ref.summary}}</h2>
             </div>
         </ion-item>
-    </ion-list>
+    </ion-list> -->
     
     
     
@@ -64,8 +64,9 @@
             <ion-item *ngFor="let list of coupon_list; let i=index" (click)="goOnPointDetailPage(list.id)">
                 <div class="left-block">
                     <p>{{'Scan Point' | translate}}</p>
-                    <span *ngIf="list.scan_by_karigar_date != null">{{list.scan_by_karigar_date | date:'d MMMM y'}}</span>
-                    <span *ngIf="list.scan_by_retailer_date != null">{{list.scan_by_retailer_date | date:'d MMMM y'}}</span>
+                    <span><span>Coupon Code</span>{{list.coupon_code}}</span><br>
+                    <span *ngIf="list.scan_by_karigar_date != null">{{list.scan_by_karigar_date | date:'d MMMM y - h:mm'}}</span>
+                    <span *ngIf="list.scan_by_retailer_date != null">{{list.scan_by_retailer_date | date:'d MMMM y -h:mm'}}</span>
                 </div>
                 <div class="right-block" [ngClass]="{ 'Success': list.status == 'SUCCESS', 'Inprocess': list.status == 'PENDING',  'Error': list.status == 'Error', 'FAILURE': list.status == 'FAILURE'}">
                     <h2>&#x20B9; {{list.coupon_value}}</h2>
@@ -84,25 +85,16 @@
             </ion-item>
             <ion-item *ngFor="let row of ref_points;">
                 <div class="left-block">
-                    <p>{{'Referral code' | translate}} <strong>{{row.referral_code}}</strong></p>
-                    <span>{{row.date_refered | date:'d MMMM y'}}</span>
+
+                    <p>{{row.summary}}</p>
+                    <span>{{row.date_created | date:'d MMMM y'}}</span>
                 </div>
                 <div class="right-block">
-                    <h2>{{row.coupon_value}}</h2>
+                    <h2>{{row.points}}</h2>
                 </div>
             </ion-item>
         </ion-list>
     </div>
-    
-    
-    
-    <!-- <div class="point-box" *ngIf="karigar_point.referal_point_balance!=0 || karigar_point.balance_point!=0">
-        <button ion-item >
-            <h1>{{'Get Point' | translate}}</h1>
-            <h2>{{list.coupon_value}}</h2>
-            <p>{{!list.scan_by_karigar_date ? 'Referral Point' : list.scan_by_karigar_date | date:'d MMMM y'}}</p>
-        </button>
-    </div> -->
     <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)" *ngIf="flag!=1">
         <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="{{'Loading more data...' | translate}}">
         </ion-infinite-scroll-content>

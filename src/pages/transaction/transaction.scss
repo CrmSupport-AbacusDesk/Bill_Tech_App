@@ -1,3 +1,43 @@
 page-transaction {
-
+    
+    
+    .chatus{
+        text-align: left;
+        
+        button{
+            font-size: 12px;
+            text-transform: capitalize;
+            padding: 0px;
+            margin: 0px !important;
+            text-decoration: underline;
+            height: 20px;
+            color: #0459d8;
+        }
+    }
+    .tr-cicle,.tr-cicle1, .tr-cicle2{
+        border: 1px solid #fff!important;
+        background: #fff!important;
+    }
+    .tr-cicle i{
+        color: #eb822c!important;
+     }
+    .tr-cicle1 i{
+       color: #ff0000!important;
+    }
+    .tr-cicle2 i{
+      color: #6AC259!important;
+    }
+    .yes_btn{
+        color: blue;
+        text-decoration: underline;
+    }
+    .btn-received{
+        p{
+            font-weight: 500;
+        }
+    }
+    .green{
+        color: #6AC259;
+    }
+    
 }

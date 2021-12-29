@@ -1,71 +1,74 @@
 <ion-header>
     <ion-navbar>
-        <ion-title>Payment Detail</ion-title>
+        <ion-title>{{'Gift Request Status' | translate}}</ion-title>
     </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-    <div class="shipped-detail" >
-        <!-- <div class="content edit-content" *ngIf="karigar_gift.shipping_address" >
-            <p>Shipping Address</p>
-            <a *ngIf="!shipped_detail.shipped_type && edit=='' && karigar_gift.gift_status=='Pending'" class="edit-field" (click)="edit='1'"><i class="material-icons">create</i></a>
-            <h1 *ngIf="edit==''">{{karigar_gift.shipping_address}}</h1> 
-            
-            <div *ngIf="edit=='1'">
-                <textarea palceholder="Shipping Address" name="shipping_address " #shipping_address ="ngModel" [(ngModel)]="karigar_gift.shipping_address" ></textarea>
-                <button ion-item class="cs-btn btn-radius mb0 mt10" [disabled]="karigar_gift.shipping_address==''" (click)="editAddress()">Save</button>
-            </div>
-        </div>
-        <div *ngIf="shipped_detail.shipped_type">
-            <div class="content">
-                <p>Shipped By</p>
-                <h1>{{shipped_detail.shipped_type}}</h1> 
-            </div>
-            <div class="content" >
-                <p>Estimate Delivery Time</p>
-                <h1>{{shipped_detail.estimated_date}}</h1>
-            </div>
-            <div class="content">
-                <p>Shipping Information</p>
-                <h1 [innerHTML]="shipped_detail.shipping_information" (click)="goto_link(shipped_detail.shipping_information)" ></h1>
-            </div>
-        </div> -->
-
-        <div *ngIf="shipped_detail.transaction_type">
-            <div class="content">
-                <p>Received Amount</p>
-                <h1>&#8377;  {{shipped_detail.redeem_amount}}</h1> 
-            </div>
-            <div class="content">
-                <p>Received Date</p>
-                <h1>{{shipped_detail.last_updated | date:'d MMMM y, h:mm a'}}</h1> 
-            </div>
-            <div class="content" >
-                <p>Status</p>
-                <h1>{{shipped_detail.status}}</h1>
-            </div>
-            <div class="content" *ngIf="shipped_detail.failure_reason">
-                <p>Failure Reason</p>
-                <h1>{{shipped_detail.failure_reason}}</h1>
-            </div>
-            
-        </div>
-    </div>
     <div class="margin-padding">
         <div class="phone">
             <div class="phone-head">
                 <h1>{{gift_detail.gift_title}}</h1>
             </div>
-            <div class="phone-img">
-                <!-- <img [src]="upload_url+gift_detail.gift_image"> -->
-                <img [src]="gift_detail.image">
+            <img [src]="gift_detail.image">
+        </div>
+        <div class="specification mt10" *ngIf="gift_detail.gift_specification != ''">
+            <div><Strong>{{'Specification' | translate}} :</Strong> <div [innerHTML]="gift_detail.gift_specification"> </div></div>
+        </div>
+        <div class="specification mt10">
+            <div>{{'Gift Status' | translate}} :
+               <Strong class="{{karigar_gift.gift_status }}"> 
+                    <span *ngIf="karigar_gift.gift_status != 'Reject'">
+                    {{karigar_gift.gift_status}}
+                     
+                    </span>
+                   <span *ngIf="karigar_gift.gift_status == 'Reject'">
+                     <!-- {{karigar_gift.gift_status}} -->
+                     Rejected
+                   </span>
+            </Strong>
+        </div>
+            <div class="mt5" *ngIf="karigar_gift.receive_status">{{'Receive Status' | translate}} : <Strong class="{{karigar_gift.gift_status}}"> {{karigar_gift.receive_status}}</Strong></div>
+        </div>
+        <div class="shipped-detail" >
+            <div *ngIf="shipped_detail.shipped_type">
+                <div class="content">
+                    <p>{{'Shipped by' | translate}}</p>
+                    <h1>{{shipped_detail.shipped_type}}</h1> 
+                </div>
+                <div class="content" >
+                    <p>{{'Estimate delivery Date' | translate}}</p>
+                    <h1>{{shipped_detail.estimated_date}}</h1>
+                </div>
+                <div class="content">
+                    <p>{{'Shipping information' | translate}}</p>
+                    <h1 [innerHTML]="shipped_detail.shipping_information" (click)="goto_link(shipped_detail.shipping_information)" ></h1>
+                </div>
             </div>
         </div>
-        <div class="lorem-text" *ngIf="gift_detail.gift_specification != ''">
-            <p><Strong>Specification : <div [innerHTML]="gift_detail.gift_specification"> </div></Strong></p>
+        <div class="shipped-detail mt10" >
+            <div class="content edit-content">
+                <p>{{'Shipping address' | translate}}</p>
+                <a *ngIf="!shipped_detail.shipped_type && edit=='' && karigar_gift.gift_status=='Pending'" class="edit-field" (click)="edit='1'">
+                    <i class="material-icons">create</i>
+                </a>
+                <h1 *ngIf="edit==''">{{karigar_gift.shipping_address}}</h1>
+                <div *ngIf="edit=='1'">
+                    <textarea palceholder="Shipping address" name="shipping_address " #shipping_address ="ngModel" [(ngModel)]="karigar_gift.shipping_address" ></textarea>
+                    <button ion-item class="cs-btn btn-radius mb0 mt10" [disabled]="karigar_gift.shipping_address==''" (click)="editAddress()">Save</button>
+                </div>
+            </div>
         </div>
+        
+        <div class="chatus" *ngIf="karigar_gift.receive_status != 'Received'">
+            {{'Changed your mind? Write to us' | translate}}
+            <a (click)="openChat()">{{'Chat with us' | translate}}</a>
+            {{'to cancel this gift redeem request.' | translate}}
+        </div>
+        
+        
         <div class="fix-btn" *ngIf="receive_status == null">
-            <button ion-item class="cs-btn btn-radius mb0" (click)="recvConfirmation(gift_detail.id)">Click Here if you Recieve</button>
+            <button ion-item class="cs-btn btn-radius mb0" (click)="recvConfirmation(gift_detail.id)">{{'Click here if you recieve' | translate}}</button>
         </div>
     </div>
 </ion-content>

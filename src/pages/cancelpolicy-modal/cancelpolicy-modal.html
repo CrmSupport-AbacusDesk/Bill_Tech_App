@@ -33,17 +33,32 @@
                     </div>
                 </div>
 
-                <div class="check-bx">
+                <!-- <div class="check-bx">
                     <ion-item>
                         <ion-checkbox color="secondary" checked="true" name="check1" #check1="ngModel" [(ngModel)]="data.check1" (click)="myNumber()">
                         </ion-checkbox>
                     </ion-item>
                     <p>{{'Same as login number' | translate}}</p>
+                </div> -->
+                <div class="check-bx mt0">
+                    <ion-item>
+                        <ion-checkbox color="secondary" checked="true" name="check1" #check1="ngModel" [(ngModel)]="data.check1" (click)="address()">
+                        </ion-checkbox>
+                    </ion-item>
+                    <p>{{'Same as address' | translate}}</p>
+                </div>
+                <div class="input-section">
+                    <div class="input-adjust m0 mt0">
+                        <textarea class="pl16 mt0"  name="shipping_address" placeholder="Address" #shipping_address="ngModel" [(ngModel)]="data.shipping_address"   required></textarea>
+                        <div class="otp-error" *ngIf="!shipping_address && otp?.shipping_address">
+                            <p>{{data.payment_type}} number required</p>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="input-section">
                     <div class="input-adjust m0">
-                        <input class="pl16 radius-none" type="tel" name="payment_number" placeholder="Paytm Mobile Number" #payment_number="ngModel" [(ngModel)]="data.payment_number" minlength="10" maxlength="10"  required>
+                        <!-- <input class="pl16 radius-none" type="tel" name="payment_number" placeholder="Paytm Mobile Number" #payment_number="ngModel" [(ngModel)]="data.payment_number" minlength="10" maxlength="10"  required> -->
                         <div class="otp-error" *ngIf="!payment_number && otp?.payment_number">
                             <p>{{data.payment_type}} number required</p>
                         </div>
@@ -55,7 +70,6 @@
                         <textarea class="pl16 radius-none" type="text" name="shipping_address" placeholder="{{'Enter Shipping Address' | translate}}" #shipping_address="ngModel" [(ngModel)]="data.shipping_address" required></textarea>
                     </div>
                 </div> -->
-
                 <div class="check-bx">
                     <ion-item>
                         <ion-checkbox color="secondary" checked="true" name="check" #check="ngModel" [(ngModel)]="data.check" required></ion-checkbox>

@@ -2,8 +2,9 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, Loading, LoadingController, AlertController, App } from 'ionic-angular';
 import { DbserviceProvider } from '../../providers/dbservice/dbservice';
 import { TabsPage } from '../tabs/tabs';
-import { InAppBrowser } from '@ionic-native/in-app-browser/ngx'
+// import { InAppBrowser } from '@ionic-native/in-app-browser'
 import { ConstantProvider } from '../../providers/constant/constant';
+import { FeedbackPage } from '../feedback/feedback';
 
 @IonicPage()
 @Component({
@@ -19,9 +20,17 @@ export class ShippingDetailPage {
   receive_status:any='';
   karigar_gift:any={};
   edit:any='';
+  giftimg:any=[];
   upload_url:any='';
   
-  constructor(public navCtrl: NavController, public navParams: NavParams,public service:DbserviceProvider,public loadingCtrl:LoadingController,public alertCtrl:AlertController,private app: App, private InAppBrowser: InAppBrowser,public constn:ConstantProvider) {
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams,
+    public service:DbserviceProvider,
+    public loadingCtrl:LoadingController,
+    public alertCtrl:AlertController,
+    private app: App,
+     public constn:ConstantProvider) {
   }
   
   ionViewDidLoad() {
@@ -41,7 +50,8 @@ export class ShippingDetailPage {
     this.service.post_rqst({'karigar_gift_id' :this.karigar_gift_id},'app_karigar/shippedDetail').subscribe( r =>
       {
         console.log(r);
-        if(r['shipped'])this.shipped_detail=r['shipped'];
+        if(r['shipped'])
+        this.shipped_detail=r['shipped'];
       });
     }
     presentLoading() 
@@ -60,6 +70,7 @@ export class ShippingDetailPage {
           console.log(r);
           this.loading.dismiss();
           this.gift_detail=r['gift'];
+          this.giftimg=r['gift_images'];
           this.karigar_gift=r['karigar_gift']
           if(r['karigar_gift'] != null)
           {
@@ -145,7 +156,7 @@ export class ShippingDetailPage {
         {
           console.log(url);
           
-         this.InAppBrowser.create(url);
+        //  this.InAppBrowser.create(url);
         }
 
         editAddress()
@@ -154,10 +165,16 @@ export class ShippingDetailPage {
             {
               if(result['status']='SUCCESS')
               this.edit='';
+
+              
               this.showSuccess("Shipping Address Updated !");
               this.getGiftDetail();
 
             })
+        }
+
+        openChat(){
+          this.navCtrl.push(FeedbackPage)
         }
         
       }
