@@ -9,8 +9,10 @@
         <button ion-item class="bg-product mb16" *ngFor="let list of offer_list;let i=index" (click)="goOnOffersPage(list.id)">
             <div class="thumbnail">
                 <!-- <img src="{{uploadUrl}}{{list.offer_banner}}"> -->
-                <img src="{{list.offer_banner}}">
-
+                <!-- <img src="{{list.offer_banner}}"> -->
+                <img src="{{uploadUrl + list.banner}}">
+                
+                
             </div>
             <div class="errow">
                 <div class="list-tags wthspan">

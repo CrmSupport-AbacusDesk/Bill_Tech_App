@@ -13,7 +13,9 @@
 
     <!-- <div class="fix"></div> -->
     <div class="bg-banner">
-        <img src="{{offer_detail.offer_banner}}">
+        <img src="{{uploadUrl + offer_detail.banner}}">
+
+        <!-- <img src="{{offer_detail.offer_banner}}"> -->
     </div>
     <div class="content-padding">
         <div class="offer">
@@ -55,7 +57,8 @@
                 </div>
             </div>  
             <div class="product-img">
-                <img src="{{list.image}}">
+                <img src="{{uploadUrl + list.gift_image}}">
+                <!-- <img src="{{list.image}}"> -->
             </div>
         </button>
         <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)" *ngIf="flag!=1">

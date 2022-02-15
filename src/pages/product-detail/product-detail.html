@@ -7,7 +7,7 @@
 </ion-header>
 
 <ion-content padding>
-    <div class="fix" >
+    <div class="fix pt16" >
         <div class="search">
             <ion-searchbar type='text' placeholder="{{'Search' | translate}}" name='search' #search="ngModel" [(ngModel)]="filter.search" (ngModelChange)="getProductList(cat_id,filter.search)"></ion-searchbar>
         </div>
@@ -29,4 +29,11 @@
 			<i class="material-icons">trending_flat</i>
 		</button>
     </div>
+
+    <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)"  *ngIf="flag!=1">
+        <ion-infinite-scroll-content
+            loadingSpinner="bubbles"
+            loadingText="{{'Loading more data...' | translate}}">
+        </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
 </ion-content>

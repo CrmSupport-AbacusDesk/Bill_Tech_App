@@ -80,6 +80,31 @@ export class ProductDetailPage {
             this.prod_cat=r['category_name'];
         });
     }
+    
+    loadData(infiniteScroll)
+    {
+        console.log('loading');
+        this.filter.limit=this.prod_list.length;
+        this.service.post_rqst({'filter' : this.filter},'app_master/productList')
+        .subscribe( (r) =>
+        {
+            console.log(r);
+            // if(r['products']=='')
+            // {
+            //     this.flag=1;
+            // }
+            // else
+            // {
+            setTimeout(()=>{
+                this.prod_list=this.prod_list.concat(r['products']);
+                console.log('Asyn operation has stop')
+                infiniteScroll.complete();
+            },1000);
+            // }
+        });
+    }
+    
+    
     presentLoading() 
     {
         this.translate.get("Please wait...")
