@@ -1507,15 +1507,11 @@ button {
             }
         }
         .phone-img {
-            height: 230px;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
             overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
-            img {
-                width: 240px;
-            }
         }
     }
 }
@@ -1742,10 +1738,13 @@ button {
 // Offer Start ///
 .bg-banner {
     line-height: 0px;
-    height: 212px;
+    padding: 16px;
+    height: 250px;
+    text-align: center;
     img {
-        width: 100%;
+        
         height: 100%;
+        object-fit: contain;
     }
 }
 
@@ -2204,10 +2203,9 @@ button {
                 ion-label {
                     margin: 0px !important;
                     img {
-                        height: 180px;
-                        object-fit: contain;
-                        object-fit: contain;
-                        width: inherit;
+                        // height: 180px;
+                        object-fit: cover;
+                        width: 100%;
                     }
                 }
             }
@@ -2725,6 +2723,33 @@ button {
 
 // Notification End ///
 // Contact Start ///
+.item-table{
+    padding: 16px;
+    
+    table{
+        width: 100%;
+        table-layout: fixed;
+        box-sizing: border-box;
+        
+        tr{
+            
+            border-bottom:1px solid #ccc;
+            
+            th{
+                text-align: left;
+                width:140px;
+            }
+            
+            th, td{
+                
+                font-size: 13px;
+                padding: 5px;
+                vertical-align: top;
+            }
+        }
+    }
+}
+
 .nev-adjust {
     height: 100%;
     position: relative;
@@ -4824,7 +4849,7 @@ span {
             display: flex;
             align-items: center;
             justify-content: center;
-            background: #ff0000;
+            background: #000;
             color: #fff;
         }
     }

@@ -267,7 +267,7 @@ export class MyApp {
                                 {text: this.cancl, },
                                 {text: this.upd_now,
                                     handler: () => {
-                                        window.open('https://play.google.com/store/apps/details?id=com.abacusdesk.plazacables&hl=en','_system','location=yes');
+                                        window.open('https://play.google.com/store/apps/details?id=com.abacusdesk.billtech&hl=en','_system','location=yes');
                                     } 
                                 }
                             ]

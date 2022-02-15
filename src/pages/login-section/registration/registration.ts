@@ -57,7 +57,6 @@ export class RegistrationPage {
         console.log(this.data.mobile_no);
         this.data.profile='';
         this.data.document_image='';
-        this.data.visiting_card='';
         console.log(this.data.profile);
         
         this.translate.setDefaultLang(this.lang);
@@ -409,79 +408,6 @@ getDocImage()
         this.flag=false;
         this.data.document_image = 'data:image/jpeg;base64,' + imageData;
         console.log(this.data.document_image);
-    }, (err) => {
-    });
-}
-
-
-
-
-onUploadCard(evt: any) {
-    let actionsheet = this.actionSheetController.create({
-        title:this.upl_file,
-        cssClass: 'cs-actionsheet',
-        
-        buttons:[{
-            cssClass: 'sheet-m',
-            text: this.cam,
-            icon:'camera',
-            handler: () => {
-                console.log("Camera Clicked");
-                this.takeCardPhoto();
-            }
-        },
-        {
-            cssClass: 'sheet-m1',
-            text: this.gal,
-            icon:'image',
-            handler: () => {
-                console.log("Gallery Clicked");
-                this.getCardImage();
-            }
-        },
-        {
-            cssClass: 'cs-cancel',
-            text: this.cancl,
-            role: 'cancel',
-            handler: () => {
-                console.log('Cancel clicked');
-            }
-        }
-    ]
-});
-actionsheet.present();
-}
-takeCardPhoto()
-{
-    console.log("i am in camera function");
-    const options: CameraOptions = {
-        quality: 70,
-        destinationType: this.camera.DestinationType.DATA_URL,
-        targetWidth : 500,
-        targetHeight : 400
-    }
-    
-    console.log(options);
-    this.camera.getPicture(options).then((imageData) => {
-        this.flag=false;
-        this.data.visiting_card = 'data:image/jpeg;base64,' + imageData;
-        console.log(this.data.visiting_card);
-    }, (err) => {
-    });
-}
-getCardImage()
-{
-    const options: CameraOptions = {
-        quality: 70,
-        destinationType: this.camera.DestinationType.DATA_URL,
-        sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
-        saveToPhotoAlbum:false
-    }
-    console.log(options);
-    this.camera.getPicture(options).then((imageData) => {
-        this.flag=false;
-        this.data.visiting_card = 'data:image/jpeg;base64,' + imageData;
-        console.log(this.data.visiting_card);
     }, (err) => {
     });
 }

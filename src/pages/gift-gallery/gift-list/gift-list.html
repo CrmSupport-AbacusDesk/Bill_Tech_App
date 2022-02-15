@@ -33,7 +33,7 @@
             </div>
         </div>  
         <div class="product-img">
-            <img src="{{list.image}}">
+            <img src="{{uploadUrl + list.gift_image}}">
         </div>
     </button>
         <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)" *ngIf="flag!=1">

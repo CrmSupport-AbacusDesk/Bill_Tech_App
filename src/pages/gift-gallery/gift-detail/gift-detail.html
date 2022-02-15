@@ -6,7 +6,7 @@
 
 <ion-content padding>
     <div class="top-nav nav-adjust">
-        <p>{{gift_detail.title | titlecase}} {{'Offer Points' | translate}}</p>
+        <p>{{gift_detail.title |titlecase}} {{'Offer Points' | translate}}</p>
         <h1>{{offer_balance || 0}}</h1>
     </div>
     <div class="margin-padding pb0">
@@ -17,13 +17,13 @@
 
             </div>
             <div class="phone-img">
-                <img src="{{gift_detail.image}}">
+                <img src="{{uploadUrl + gift_detail.gift_image}}">
             </div>
         </div>
         <div class="detail-list">
             <div class="detail">
                 <div class="img-section">
-                    <img src="{{gift_detail.offer_banner}}">
+                    <img src="{{uploadUrl + gift_detail.banner}}">
                 </div>
                 <div class="info" (click)="goOnOfferDetailPage(gift_detail.offer_id)">
                     <h1>{{lang !='en' ? gift_detail.hin_title : gift_detail.title | titlecase}}</h1>
@@ -43,9 +43,7 @@
             <p>{{rating_star}} {{'Star' | translate}} - {{gift_detail.votes}} {{'Votes' | translate}} </p>
         </div>
         <div class="lorem-text">
-            <p>
-                <Strong>{{'Specification' | translate}} : <div [innerHTML]="lang !='en' ? gift_detail.hin_gift_specification : gift_detail.gift_specification"></div> </Strong>
-            </p>
+            <Strong>{{'Specification' | translate}} :  </Strong><span [innerHTML]="lang !='en' ? gift_detail.hin_gift_specification : gift_detail.gift_specification"></span>
         </div>
         <button ion-item class="cs-btn btn-radius mb0" (click)="presentCancelPolicyModal()" *ngIf="offer_balance >= gift_detail.coupon_points">{{'Send Redeem Request' | translate}}</button>
         <div class="h32"></div>
